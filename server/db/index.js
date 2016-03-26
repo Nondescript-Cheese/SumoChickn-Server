@@ -18,7 +18,7 @@ var Challenge = db.define('Challenge', {
   completed: {type: Sequelize.BOOLEAN, defaultValue: false},
   userChallenged: Sequelize.STRING
 }, {
-  timestamps: false
+  timestamps: true
 });
 
 var Tribe = db.define('Tribe', {
