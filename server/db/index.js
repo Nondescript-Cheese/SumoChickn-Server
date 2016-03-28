@@ -16,6 +16,7 @@ var Challenge = db.define('Challenge', {
   points: Sequelize.INTEGER,
   createdBy: Sequelize.STRING,
   completed: {type: Sequelize.BOOLEAN, defaultValue: false},
+  expired: {type: Sequelize.BOOLEAN, defaultValue: false},
   userChallenged: Sequelize.STRING
 }, {
   timestamps: true
