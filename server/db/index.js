@@ -17,7 +17,8 @@ var Challenge = db.define('Challenge', {
   createdBy: Sequelize.STRING,
   completed: {type: Sequelize.BOOLEAN, defaultValue: false},
   expired: {type: Sequelize.BOOLEAN, defaultValue: false},
-  userChallenged: Sequelize.STRING
+  userChallenged: Sequelize.STRING,
+  proofUrl: Sequelize.STRING
 }, {
   timestamps: true
 });
