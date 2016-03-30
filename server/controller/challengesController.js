@@ -32,35 +32,12 @@ module.exports = {
      }
    }).then(function(data) {
      complete = !data.completed;
-     // points = data.points;
      return data.updateAttributes({
        completed: !data.completed,
        closedDate: new Date()
      });
    }).then(function(result) {
     res.send(200, result);
-   //   return db.models.User.find({
-   //     where: {
-   //       id: result.UserId
-   //     }
-   //   });
-   // }).then(function(userResult) {
-   //   var total;
-   //   if(complete) {
-   //     total = userResult.beastPoints + points;
-   //     return userResult.updateAttributes({
-   //       beastPoints: total
-   //     }).then(function(addedPoints) {
-   //       res.send(200, addedPoints);
-   //     });
-   //   } else {
-   //     total = userResult.beastPoints - points;
-   //     return userResult.updateAttributes({
-   //       beastPoints: total
-   //     }).then(function(subtractedPoints) {
-         // res.send(200, subtractedPoints);
-   //     });
-   //   }
    }).catch(function(err) {
      res.send(404, 'error');
    });
