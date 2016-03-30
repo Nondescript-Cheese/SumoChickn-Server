@@ -13,6 +13,9 @@ router.put('/toggleChallenge/:id', controller.challenges.updateChallengeStatus);
 
 router.put('/addPhoto/:id', controller.challenges.updatePhoto);
 
-router.get('/getPhoto/:id', controller.challenges.getPhoto)
+router.get('/getPhoto/:id', controller.challenges.getPhoto);
+
+router.get('/getClosedChallenges/:from/:to', controller.challenges.getClosedChallenges);
+
 
 module.exports = router;
