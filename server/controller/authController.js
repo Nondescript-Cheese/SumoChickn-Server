@@ -10,6 +10,7 @@ module.exports = {
         username: loginUser
       }
     }).then(function(data) {
+      //get data from querying and send it to the client
       data = data[0].dataValues
       res.json(200, data);
     }).catch(function(err) {

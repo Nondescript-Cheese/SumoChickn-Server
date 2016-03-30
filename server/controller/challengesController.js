@@ -4,11 +4,13 @@ module.exports = {
 
  postChallenge: function(req, res) {
    var challenge = req.body;
+   //query database to find the user that the challenge is issued to
    return db.models.User.find({
      where: {
        username: challenge.userChallenged
      }
    }).then(function(data) {
+    //create the challenge and associate it to the user
      return db.models.Challenge.create({
        challengeText: challenge.challengeText,
        points: challenge.points,
@@ -17,6 +19,7 @@ module.exports = {
        UserId: data.id
      });
    }).then(function(data) {
+    //send the returned information to the client
      res.send(200, data);
    }).catch(function(err) {
      res.send(404, 'error');
@@ -95,6 +98,6 @@ module.exports = {
       res.send(404, 'error');
     })
   }
-  
+
 };
 
