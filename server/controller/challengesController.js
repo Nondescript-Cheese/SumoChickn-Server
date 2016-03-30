@@ -80,6 +80,7 @@ module.exports = {
      res.send(404, 'error');
    });
  },
+ 
  getPhoto: function(req, res) {
    var challengeId = parseInt(req.params.id);
    db.models.Challenge.find({
@@ -91,6 +92,29 @@ module.exports = {
    }).catch(function(err) {
      res.send(404, 'error');
    });
- }
+ },
+
+ getClosedChallenges: function(req, res) {
+    console.log('HELLO IM HERE');
+    var challengeFrom = parseInt(req.params.from)-1;
+    var challengeTo = parseInt(req.params.to);
+    return db.models.Challenge.findAll({
+      where: {
+        completed: true
+      }
+    }).then(function(data) {
+      return data.sort(function(a,b) {
+        //sort by date from earliest to latest
+        return Date.parse(a.closedDate) - Date.parse(b.closedDate) 
+      });
+    }).then(function(sortedData) {
+      return sortedData.slice(challengeFrom, challengeTo);
+    }).then(function(slicedData) {
+      res.send(200, slicedData);
+    }).catch(function(err) {
+      res.send(404, 'error');
+    })
+  }
+};
 };
 
