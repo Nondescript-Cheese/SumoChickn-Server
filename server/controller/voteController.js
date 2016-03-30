@@ -3,6 +3,7 @@ var db = require('../db');
 module.exports = {
   voteOnProof: function(req, res) {
     var points;
+    var challengeToBeReturned;
     var voteChoice = parseInt(req.params.vote);
     var challengeId = parseInt(req.params.id);
     return db.models.Challenge.find({
@@ -15,6 +16,7 @@ module.exports = {
         return data.updateAttributes({
           voteCountNo: ++data.voteCountNo
         }).then(function(challengeWithNoVotes) {
+          challengeToBeReturned = challengeWithNoVotes;
           if(challengeWithNoVotes.voteCountNo === 2) {
             return db.models.User.find({
               where: {
@@ -26,16 +28,17 @@ module.exports = {
                 wussPoints: total
               });
             }).then(function(updatedPoints) {
-              res.send(200, updatedPoints);
+              res.send(200, challengeToBeReturned);
             });
           } else {
-            res.send(200, data);
+            res.send(200, challengeWithNoVotes);
           }
         });
       } else {
         return data.updateAttributes({
           voteCountYes: ++data.voteCountYes
         }).then(function(challengeWithYesVotes) {
+          challengeToBeReturned = challengeWithYesVotes;
           if(challengeWithYesVotes.voteCountYes === 2) {
             return db.models.User.find({
               where: {
@@ -47,10 +50,10 @@ module.exports = {
                 beastPoints: total
               });
             }).then(function(updatedPoints) {
-              res.send(200, updatedPoints);
+              res.send(200, challengeToBeReturned);
             });
           } else {
-            res.send(200, data);
+            res.send(200, challengeWithYesVotes);
           }
         });
       }
