@@ -53,15 +53,18 @@ module.exports = {
  updatePhoto: function(req, res) {
    var challengeId = parseInt(req.params.id);
    var photoUrl = req.body.url;
+   //find the challenge the end user wants to post a photo to
    return db.models.Challenge.find({
      where: {
        id: challengeId
      }
    }).then(function(data) {
+    //update the challenge's proofUrl property to be the link to the photo
      return data.updateAttributes({
        proofUrl: photoUrl
      });
    }).then(function(updated) {
+    //send updated challenge to the client
      res.send(200, updated);
    }).catch(function(err) {
      res.send(404, 'error');
@@ -70,6 +73,7 @@ module.exports = {
 
  getPhoto: function(req, res) {
    var challengeId = parseInt(req.params.id);
+   //find the challenge associated with the p
    return db.models.Challenge.find({
      where: {
        id: challengeId
