@@ -42,21 +42,28 @@ module.exports = {
           }
         });
       } else {
+        //if end user votes yes
+        //update the voteCountYes property of the challenge
         return data.updateAttributes({
           voteCountYes: ++data.voteCountYes
         }).then(function(challengeWithYesVotes) {
+          //save the challenge in var
           challengeToBeReturned = challengeWithYesVotes;
           if(challengeWithYesVotes.voteCountYes === 2) {
+            //if the yes count reachers 2
+            //find the user associated with the challenge
             return db.models.User.find({
               where: {
                 id: challengeWithYesVotes.UserId
               }
             }).then(function(user) {
+              //add points to his beastPoints property
               var total = points + user.beastPoints;
               return user.updateAttributes({
                 beastPoints: total
               });
             }).then(function(updatedPoints) {
+              //send saved challenge to the client
               res.send(200, challengeToBeReturned);
             });
           } else {
