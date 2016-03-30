@@ -34,7 +34,8 @@ module.exports = {
      complete = !data.completed;
      points = data.points;
      return data.updateAttributes({
-       completed: !data.completed
+       completed: !data.completed,
+       closedDate: new Date()
      });
    }).then(function(result) {
      return db.models.User.find({
