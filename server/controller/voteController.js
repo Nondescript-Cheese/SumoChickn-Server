@@ -15,11 +15,18 @@ module.exports = {
       if(voteChoice === 0) {
         return data.updateAttributes({
           voteCountNo: data.voteCountNo++
-        }).then(function(noVotes) {
-          if(noVotes.voteCountNo === 2) {
-            total = noVotes.wussPoints + points;
-            noVotes.updateAttributes({
-              wussPoints: total
+        }).then(function(challengeWithNoVotes) {
+          if(challengeWithNoVotes.voteCountNo === 2) {
+            points = challengeWithNoVotes.points;
+            return db.models.User.find({
+              where: {
+                id: challengeWithNoVotes.UserId
+              }
+            }).then(function(user) {
+              total = user.wussPoints + points;
+              return user.updateAttributes({
+                wussPoints: total
+              });
             }).then(function(updatedPoints) {
               res.send(200, updatedPoints);
             });
@@ -28,11 +35,18 @@ module.exports = {
       } else {
         return data.updateAttributes({
           voteCountYes: data.voteCountYes++
-        }).then(function(yesVotes) {
-          if(yesVotes.voteCounYes === 2) {
-            total = points + yesVotes.beastPoints;
-            yesVotes.updateAttributes({
-              beastPoints: total
+        }).then(function(challengeWithYesVotes) {
+          if(challengeWithYesVotes.voteCountYes === 2) {
+            points = challengeWithYesVotes.points;
+            return db.modesl.User.find({
+              where: {
+                id: challengeWithYesVotes.UserId
+              }
+            }).then(function(user) {
+              total = points + user.beastPoints;
+              return db.models.User.updateAttributes({
+                beastPoints: total
+              });
             }).then(function(updatedPoints) {
               res.send(200, updatedPoints);
             });
@@ -41,6 +55,6 @@ module.exports = {
       }
     }).catch(function(err) {
       res.send(404, 'error');
-    })
+    });
   }
 }
