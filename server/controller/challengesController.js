@@ -4,7 +4,7 @@ module.exports = {
  postChallenge: function(req, res) {
    var challenge = req.body;
    console.log("THE BODY IS", req.body);
-   db.models.User.find({
+   return db.models.User.find({
      where: {
        username: challenge.userChallenged
      }
@@ -26,7 +26,7 @@ module.exports = {
    var challengeId = parseInt(req.params.id);
    var complete;
    var points;
-   db.models.Challenge.find({
+   return db.models.Challenge.find({
      where: {
        id: challengeId
      }
@@ -66,7 +66,7 @@ module.exports = {
  updatePhoto: function(req, res) {
    var challengeId = parseInt(req.params.id);
    var photoUrl = req.body.url;
-   db.models.Challenge.find({
+   return db.models.Challenge.find({
      where: {
        id: challengeId
      }
@@ -80,10 +80,10 @@ module.exports = {
      res.send(404, 'error');
    });
  },
- 
+
  getPhoto: function(req, res) {
    var challengeId = parseInt(req.params.id);
-   db.models.Challenge.find({
+   return db.models.Challenge.find({
      where: {
        id: challengeId
      }
@@ -115,6 +115,5 @@ module.exports = {
       res.send(404, 'error');
     })
   }
-};
 };
 
