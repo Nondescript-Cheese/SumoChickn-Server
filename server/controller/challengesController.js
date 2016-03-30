@@ -29,18 +29,21 @@ module.exports = {
  updateChallengeStatus: function(req, res) {
    var challengeId = parseInt(req.params.id);
    var complete;
-   // var points;
+   //find the challenge to be updated
    return db.models.Challenge.find({
      where: {
        id: challengeId
      }
    }).then(function(data) {
      complete = !data.completed;
+     //update the challenge's completed property to be true(challenge complete)
+     //also update the closedDate property of the challenge to be the current date.
      return data.updateAttributes({
        completed: !data.completed,
        closedDate: new Date()
      });
    }).then(function(result) {
+    //send updated challenge to the client
     res.send(200, result);
    }).catch(function(err) {
      res.send(404, 'error');
