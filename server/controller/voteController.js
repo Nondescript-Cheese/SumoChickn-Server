@@ -23,7 +23,7 @@ module.exports = {
                 id: challengeWithNoVotes.UserId
               }
             }).then(function(user) {
-              var total = user.wussPoints + points;
+              var total = user.wussPoints + Math.ceil(points / 5);
               return user.updateAttributes({
                 wussPoints: total
               });
