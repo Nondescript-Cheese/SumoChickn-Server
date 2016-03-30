@@ -1,8 +1,10 @@
 var db = require('../db');
 
 module.exports = {
+
   login: function(req, res) {
     var loginUser = req.body.username;
+    //query database to find the specified user
     return db.models.User.findOrCreate({
       where: {
         username: loginUser
@@ -14,6 +16,7 @@ module.exports = {
       res.send(404, 'error logging in');
     });
   }
+
 };
 
 

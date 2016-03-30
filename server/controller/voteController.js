@@ -1,6 +1,7 @@
 var db = require('../db');
 
 module.exports = {
+
   voteOnProof: function(req, res) {
     var points;
     var challengeToBeReturned;
@@ -61,4 +62,5 @@ module.exports = {
       res.send(404, 'error');
     });
   }
+  
 };

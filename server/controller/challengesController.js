@@ -1,9 +1,9 @@
 var db = require('../db');
 
 module.exports = {
+
  postChallenge: function(req, res) {
    var challenge = req.body;
-   console.log("THE BODY IS", req.body);
    return db.models.User.find({
      where: {
        username: challenge.userChallenged
@@ -22,6 +22,7 @@ module.exports = {
      res.send(404, 'error');
    });
  },
+
  updateChallengeStatus: function(req, res) {
    var challengeId = parseInt(req.params.id);
    var complete;
@@ -42,6 +43,7 @@ module.exports = {
      res.send(404, 'error');
    });
  },
+
  updatePhoto: function(req, res) {
    var challengeId = parseInt(req.params.id);
    var photoUrl = req.body.url;
@@ -74,7 +76,6 @@ module.exports = {
  },
 
  getClosedChallenges: function(req, res) {
-    console.log('HELLO IM HERE');
     var challengeFrom = parseInt(req.params.from)-1;
     var challengeTo = parseInt(req.params.to);
     return db.models.Challenge.findAll({
@@ -94,5 +95,6 @@ module.exports = {
       res.send(404, 'error');
     })
   }
+  
 };
 

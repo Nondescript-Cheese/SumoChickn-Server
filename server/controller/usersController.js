@@ -1,6 +1,7 @@
 var db = require('../db');
 
 module.exports = {
+
   getUserInfo: function(req, res) {
     var userId = parseInt(req.params.userID);
     return db.models.User.findAll({
@@ -19,9 +20,11 @@ module.exports = {
       res.send(404, 'error getting info');
     })
   },
+
   getAllUsers: function(req, res) {
     return db.models.User.findAll().then(function(data) {
       res.send(200, data);
     });
   }
+  
 };
