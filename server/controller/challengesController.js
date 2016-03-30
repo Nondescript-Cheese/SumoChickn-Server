@@ -73,12 +73,13 @@ module.exports = {
 
  getPhoto: function(req, res) {
    var challengeId = parseInt(req.params.id);
-   //find the challenge associated with the p
+   //find the challenge associated with the photo
    return db.models.Challenge.find({
      where: {
        id: challengeId
      }
    }).then(function(data) {
+    //send the challenges proof-photo url back to the client
      res.send(200, data.proofUrl);
    }).catch(function(err) {
      res.send(404, 'error');
