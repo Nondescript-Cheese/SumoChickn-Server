@@ -97,8 +97,8 @@ module.exports = {
     }).then(function(data) {
       //sort the completed challenges by order of the closedDate property
       return data.sort(function(a,b) {
-        //sort by date from earliest to latest
-        return Date.parse(a.closedDate) - Date.parse(b.closedDate) 
+        //sort by date from latest to earliest
+        return Date.parse(b.closedDate) - Date.parse(a.closedDate) 
       });
     }).then(function(sortedData) {
       //slice the array to return only the challenge the client wants.
