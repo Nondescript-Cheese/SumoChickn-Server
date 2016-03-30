@@ -3,7 +3,7 @@ var db = require('../db');
 module.exports = {
   getUserInfo: function(req, res) {
     var userId = parseInt(req.params.userID);
-    db.models.User.findAll({
+    return db.models.User.findAll({
       where: {
         id: userId
       }
@@ -20,7 +20,7 @@ module.exports = {
     })
   },
   getAllUsers: function(req, res) {
-    db.models.User.findAll().then(function(data) {
+    return db.models.User.findAll().then(function(data) {
       res.send(200, data);
     });
   }
