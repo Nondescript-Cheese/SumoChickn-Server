@@ -30,11 +30,14 @@ module.exports = {
           voteCountYes: data.voteCountYes++
         }).then(function(yesVotes) {
           if(yesVotes.voteCounYes === 2) {
+            total = points + yesVotes.beastPoints;
             yesVotes.updateAttributes({
-
-            })
+              beastPoints: total
+            }).then(function(updatedPoints) {
+              res.send(200, updatedPoints);
+            });
           }
-        })
+        });
       }
     }).catch(function(err) {
       res.send(404, 'error');
