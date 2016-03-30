@@ -10,46 +10,47 @@ module.exports = {
         id: challengeId
       }
     }).then(function(data) {
-      var total;
       points = data.points;
       if(voteChoice === 0) {
         return data.updateAttributes({
-          voteCountNo: data.voteCountNo++
+          voteCountNo: ++data.voteCountNo
         }).then(function(challengeWithNoVotes) {
           if(challengeWithNoVotes.voteCountNo === 2) {
-            points = challengeWithNoVotes.points;
             return db.models.User.find({
               where: {
                 id: challengeWithNoVotes.UserId
               }
             }).then(function(user) {
-              total = user.wussPoints + points;
+              var total = user.wussPoints + points;
               return user.updateAttributes({
                 wussPoints: total
               });
             }).then(function(updatedPoints) {
               res.send(200, updatedPoints);
             });
+          } else {
+            res.send(200, data);
           }
         });
       } else {
         return data.updateAttributes({
-          voteCountYes: data.voteCountYes++
+          voteCountYes: ++data.voteCountYes
         }).then(function(challengeWithYesVotes) {
           if(challengeWithYesVotes.voteCountYes === 2) {
-            points = challengeWithYesVotes.points;
-            return db.modesl.User.find({
+            return db.models.User.find({
               where: {
                 id: challengeWithYesVotes.UserId
               }
             }).then(function(user) {
-              total = points + user.beastPoints;
-              return db.models.User.updateAttributes({
+              var total = points + user.beastPoints;
+              return user.updateAttributes({
                 beastPoints: total
               });
             }).then(function(updatedPoints) {
               res.send(200, updatedPoints);
             });
+          } else {
+            res.send(200, data);
           }
         });
       }
@@ -57,4 +58,4 @@ module.exports = {
       res.send(404, 'error');
     });
   }
-}
+};
