@@ -1,4 +1,4 @@
-var db = require('../db')
+var db = require('../db');
 
 module.exports = {
  postChallenge: function(req, res) {
@@ -25,41 +25,19 @@ module.exports = {
  updateChallengeStatus: function(req, res) {
    var challengeId = parseInt(req.params.id);
    var complete;
-   var points;
+   // var points;
    return db.models.Challenge.find({
      where: {
        id: challengeId
      }
    }).then(function(data) {
      complete = !data.completed;
-     points = data.points;
      return data.updateAttributes({
        completed: !data.completed,
        closedDate: new Date()
      });
    }).then(function(result) {
-     return db.models.User.find({
-       where: {
-         id: result.UserId
-       }
-     });
-   }).then(function(userResult) {
-     var total;
-     if(complete) {
-       total = userResult.beastPoints + points;
-       return userResult.updateAttributes({
-         beastPoints: total
-       }).then(function(addedPoints) {
-         res.send(200, addedPoints);
-       });
-     } else {
-       total = userResult.beastPoints - points;
-       return userResult.updateAttributes({
-         beastPoints: total
-       }).then(function(subtractedPoints) {
-         res.send(200, subtractedPoints);
-       });
-     }
+    res.send(200, result);
    }).catch(function(err) {
      res.send(404, 'error');
    });

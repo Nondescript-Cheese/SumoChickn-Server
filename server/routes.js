@@ -17,5 +17,7 @@ router.get('/getPhoto/:id', controller.challenges.getPhoto);
 
 router.get('/getClosedChallenges/:from/:to', controller.challenges.getClosedChallenges);
 
+router.put('/voteOnProof/:id/:vote', controller.vote.voteOnProof);
+
 
 module.exports = router;

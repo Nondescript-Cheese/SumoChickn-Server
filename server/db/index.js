@@ -19,7 +19,8 @@ var Challenge = db.define('Challenge', {
   expired: {type: Sequelize.BOOLEAN, defaultValue: false},
   userChallenged: Sequelize.STRING,
   proofUrl: Sequelize.STRING,
-  voteCount: {type: Sequelize.INTEGER, defaultValue: 0},
+  voteCountYes: {type: Sequelize.INTEGER, defaultValue: 0},
+  voteCountNo: {type: Sequelize.INTEGER, defaultValue: 0},
   closedDate: Sequelize.DATE
 }, {
   timestamps: true
