@@ -59,11 +59,11 @@ It utilizes a mySQL database along with a Node/Express server to store all the d
 
   Request Params = {userId: integer}
 
-  gets the initial data of all challenges associated with the specified user.
+  Gets the initial data of all challenges associated with the specified user.
 
 1. __/getAllUsers__ GET
 
-  gets the information of all users in the database
+  Gets the information of all users in the database
 
 1. __/login__ POST
 
@@ -99,7 +99,7 @@ It utilizes a mySQL database along with a Node/Express server to store all the d
 
   Request Params: {from: integer, to: integer}
 
-  gets the number of completed challenges from the database start from 'from' up to and including 'to'
+  Gets the number of completed challenges from the database start from 'from' up to and including 'to'
 
 1. __/voteOnproof/:id/:vote__ PUT
 
