@@ -110,6 +110,10 @@ It utilizes a mySQL database along with a Node/Express server to store all the d
 
 ####Database Design
 
+To simplify database querying and initialization, Sequelize was used with the mySQL database. There are two tables in the database, the schema is as follows:
+
+
+
 
 
 
