@@ -140,7 +140,7 @@ To simplify database querying and initialization, Sequelize was used with the my
   * id_Tribe - The tribe's id
 
 #### Schema Design
-
+  ![Database Schema](./readmePictures/databaseSchema.png)
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
