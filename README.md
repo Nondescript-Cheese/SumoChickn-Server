@@ -110,7 +110,7 @@ It utilizes a mySQL database along with a Node/Express server to store all the d
 
 ####Database Design
 
-To simplify database querying and initialization, Sequelize was used with the mySQL database. There are two tables in the database, the schema is as follows:
+To simplify database querying and initialization, Sequelize was used with the mySQL database. There are 4 tables in the database, the schema is as follows:
 
 1. __User__
   * id - The user's unique id
@@ -131,7 +131,15 @@ To simplify database querying and initialization, Sequelize was used with the my
   * voteCountNo - Integer
   * closedDate - Date
 
-#### Architecture
+1. __Tribe__
+  * id - The Tribe's unique id
+  * tribeName - The name of the tribe
+
+1. __User_Tribe__
+  * id_User - The user's id
+  * id_Tribe - The tribe's id
+
+#### Schema Design
 
 ## Contributing
 
