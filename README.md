@@ -16,7 +16,7 @@
     1. [Server Information](#server-information)
       1. [Server Design](#server-design)
       1. [Database Design](#database-design)
-1. [Contribute](#contribute)
+1. [Contributing](#contributing)
 
 ## Dependencies
 
@@ -110,7 +110,7 @@ It utilizes a mySQL database along with a Node/Express server to store all the d
 
 ####Database Design
 
-To simplify database querying and initialization, Sequelize was used with the mySQL database. There are two tables in the database, the schema is as follows:
+To simplify database querying and initialization, Sequelize was used with the mySQL database. There are 4 tables in the database, the schema is as follows:
 
 1. __User__
   * id - The user's unique id
@@ -131,15 +131,20 @@ To simplify database querying and initialization, Sequelize was used with the my
   * voteCountNo - Integer
   * closedDate - Date
 
-## Contribute
+1. __Tribe__
+  * id - The Tribe's unique id
+  * tribeName - The name of the tribe
 
-To contribute to the project:
+1. __User_Tribe__
+  * id_User - The user's id
+  * id_Tribe - The tribe's id
 
-1. Fork the repo to your own GitHub account.
-1. Clone the repo to your local machine.
-1. Create a new branch for your feature
-1. Push changes to your own repo
-1. Submit a pull request to be reviewed.
+#### Schema Design
+  ![Database Schema](./readmePictures/databaseSchema.png)
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+
 
 
 
