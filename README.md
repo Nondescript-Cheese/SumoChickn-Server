@@ -47,13 +47,30 @@ Inside of the root directory:
 ```sh
 npm install
 ```
+
 ###Server Information
 
 This repo contains the Back-end for the mobile application [SumoChickn](https://github.com/Nondescript-Cheese/challengr). 
 It utilizes a mySQL database along with a Node/Express server to store all the data necessary for the application to run.
 
-## Folders
+####Server Design
 
-###/server
+1. __/getInitialData/:userId__ GET
+  
+  gets the initial data of all challenges associated with the specified user.
 
-Inside this folder we have all the server files
+1. __
+
+
+
+
+
+
+
+
+
+
+
+
+
+
