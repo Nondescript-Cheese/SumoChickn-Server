@@ -13,12 +13,20 @@ This folder contains the server and database schemas for the mobile application 
 1. [Dependencies](#dependencies)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Project Information](#project-information)
+    1. [Server Information](#server-information)
       1. [Server Design](#server-design)
       1. [Database Design](#database-design)
 1. [Contribute](#contribute)
 
+## Dependencies
 
+###Server Dependencies
+- node 2.x.x or higher
+- express 4.13.4
+- morgan 1.7.0
+- mysql 2.10.2
+- sequelize 3.20.0
+- body-parser 1.15.0
 
 ## Tech Stack
 
@@ -29,6 +37,18 @@ This folder contains the server and database schemas for the mobile application 
 [MySQL](www.mysql)
 
 [Sequelize](www.sequelizejs.com)
+
+##Development
+
+##Installing Dependencies
+
+Inside of the root directory:
+
+```sh
+npm install
+```
+###Server Information
+
 
 ## Folders
 
