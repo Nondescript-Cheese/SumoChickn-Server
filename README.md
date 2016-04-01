@@ -8,6 +8,18 @@ This folder contains the server and database schemas for the mobile application 
   - __Scrum Master__: [Michael Cheung](https://github.com/m6cheung)
   - __Development Team Members__: [Steffen Baumgarten](https://github.com/SteffenBerlin)
 
+## Table of Contents
+
+1. [Dependencies](#dependencies)
+1. [Development](#development)
+    1. [Installing Dependencies](#installing-dependencies)
+    1. [Project Information](#project-information)
+      1. [Server Design](#server-design)
+      1. [Database Design](#database-design)
+1. [Contribute](#contribute)
+
+
+
 ## Tech Stack
 
 [Node](https://nodejs.org/)
