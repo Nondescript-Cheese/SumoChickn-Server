@@ -112,7 +112,14 @@ It utilizes a mySQL database along with a Node/Express server to store all the d
 
 To simplify database querying and initialization, Sequelize was used with the mySQL database. There are two tables in the database, the schema is as follows:
 
+1. __User__
+  * id - The user's unique id
+  * name - String
+  * beastPoints - Integer
+  * wussPoints - Integer
 
+1. __Challenge__
+  * 
 
 
 
