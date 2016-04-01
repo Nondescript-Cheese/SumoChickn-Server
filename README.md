@@ -1,6 +1,6 @@
 # SumoChickn Server Package
 
-This folder contains the server and database schemas for the mobile application [SumoChickn](https://github.com/Nondescript-Cheese/challengr). It uses a mySQL database paired with a Node/Express server to store all the data necessary for the app to run.
+> Server files 
 
 ## Team
 
@@ -49,6 +49,8 @@ npm install
 ```
 ###Server Information
 
+This repo contains the Back-end for the mobile application [SumoChickn](https://github.com/Nondescript-Cheese/challengr). 
+It utilizes a mySQL database along with a Node/Express server to store all the data necessary for the application to run.
 
 ## Folders
 
