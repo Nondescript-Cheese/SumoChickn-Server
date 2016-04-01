@@ -56,13 +56,59 @@ It utilizes a mySQL database along with a Node/Express server to store all the d
 ####Server Design
 
 1. __/getInitialData/:userId__ GET
-  
+
+  Request Params = {userId: integer}
+
   gets the initial data of all challenges associated with the specified user.
 
-1. __
+1. __/getAllUsers__ GET
+
+  gets the information of all users in the database
+
+1. __/login__ POST
+
+  Request Body = {username: string}
+
+  Logs the user in with their facebook account as well as save their facebook name to the database.
+
+1. __/submitChallenge__ POST
+
+  Request Body: {challengeText: string, points: integer, createdBy: string, userChallenged: string, UserId: integer}
+
+  Sends a challenge to a specified user through the UserId property.
+
+1. __/toggleChallenge/:id__ PUT
+
+  Request Params: {id: integer}
+
+  Toggles a challenge from incomplete to complete
+
+1. __/addPhoto/:id__ PUT
+  
+  Request Params: {id: integer}
+
+  Update the proofUrl property on the database with the url of the photo captured.
+
+1. __/getPhoto/:id__ GET
+
+  Request Params: {id: integer}
+
+  Gets the photo from a specific challenge through the challenge id.
+
+1. __/getClosedChallenges/:from/:to__ GET
+
+  Request Params: {from: integer, to: integer}
+
+  gets the number of completed challenges from the database start from 'from' up to and including 'to'
+
+1. __/voteOnproof/:id/:vote__ PUT
+
+  Request params: {id: integer, vote: integer}
+
+  Updates the yes-vote or no-vote property of the challenge. If a vote of 0 is passed, the no-vote property is incremented, otherwise if a vote of 1 is passed, the yes-vote property will increment.
 
 
-
+####Database Design
 
 
 
