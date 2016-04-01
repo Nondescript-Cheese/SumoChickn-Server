@@ -16,7 +16,7 @@
     1. [Server Information](#server-information)
       1. [Server Design](#server-design)
       1. [Database Design](#database-design)
-1. [Contribute](#contribute)
+1. [Contributing](#contributing)
 
 ## Dependencies
 
@@ -130,6 +130,12 @@ To simplify database querying and initialization, Sequelize was used with the my
   * voteCountYes - Integer
   * voteCountNo - Integer
   * closedDate - Date
+
+#### Architecture
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## Contribute
 
