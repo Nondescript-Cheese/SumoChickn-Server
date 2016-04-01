@@ -119,7 +119,19 @@ To simplify database querying and initialization, Sequelize was used with the my
   * wussPoints - Integer
 
 1. __Challenge__
-  * 
+  * id - The challenge's unique id
+  * challengeText - String
+  * points - Integer
+  * createdBy - String
+  * complete - Boolean
+  * expired - Boolean
+  * userChallenged - String
+  * proofUrl - String
+  * voteCountYes - Integer
+  * voteCountNo - Integer
+  * closedDate - Date
+
+
 
 
 
